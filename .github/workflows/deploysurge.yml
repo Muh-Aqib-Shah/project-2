@@ -27,9 +27,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install NodeJS
-        uses: actions/setup-node@v3-beta
+        uses: actions/setup-node@v2.3.0
         with:
-          node version: 12
+          node version: 14
 
       # Runs a set of commands using the runners 
       - uses: borales/actions-yarn@v2.0.0
@@ -40,7 +40,7 @@ jobs:
         run: yarn build
         
       - name: Install Surge
-        run: npm install --global surge
+        run: npm install -g surge
         
       - name: Deploy To Surge
         run: surge ./build project-002.surge.sh --token ${{secrets.SURGE_TOKEN}}
